@@ -1,14 +1,5 @@
 <?php header('Content-type: text/plain; charset=utf-8');
-	$host = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "projecttest";
-	$conn = mysqli_connect($host,$username,$password,$database) or die (mysqli_error());
-	if($conn){
-		echo "success";
-	}else{
-		echo "Connect fail";
-	}
+	require_once('localhost.php');
 	$Username = isset($_POST['Username']) ? $_POST['Username'] : '';
 	$Password = isset($_POST['Password']) ? $_POST['Password'] : '';
 	$NameUser = isset($_POST['NameUser']) ? $_POST['NameUser'] : '';

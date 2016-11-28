@@ -1,21 +1,8 @@
 <?php header('Content-type: text/plain; charset=utf-8');
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "projecttest";
-
-	try {
-	    	$connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-	    	$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    	$connection -> exec("SET CHARACTER SET utf8");
-	    }
-	catch(PDOException $e)
-	    {
-	    	die("OOPs something went wrong");
-	    }
 
 	if(isset($_POST['searchQuery']))
 		{
+		  require_once('localhost_pdo.php');
 		  $txt = html_entity_decode(preg_replace("/U\+([0-9A-F]{4})/", "&#x\\1;",$_POST['searchQuery']), ENT_NOQUOTES, 'UTF-8');
 
 		  

@@ -1,31 +1,14 @@
-<?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "projecttest";
-
-	try {
-	    	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-	    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    	$conn -> exec("SET CHARACTER SET utf8");
-	    }
-	catch(PDOException $e)
-	    {
-	    	die("OOPs something went wrong");
-	    }
-
-
-
+<?php  header('Content-type: text/plain; charset=utf-8');
 	if(isset($_POST['username']) && isset($_POST['password']))
      {
-		  // Innitialize Variable
+		  require_once('localhost_pdo.php');
 		  $result='';
 	   	  $username = $_POST['username'];
           $password = $_POST['password'];
 		  
 		  // Query database for row exist or not
           $sql = 'SELECT Level,Status FROM login WHERE  Username = :username AND Password = :password';
-          $stmt = $conn->prepare($sql);
+          $stmt = $connection->prepare($sql);
           $stmt->bindParam(':username', $username, PDO::PARAM_STR);
           $stmt->bindParam(':password', $password, PDO::PARAM_STR);
           $stmt->execute();

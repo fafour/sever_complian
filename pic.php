@@ -1,17 +1,12 @@
 <?php  header('Content-type: text/plain; charset=utf-8');
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "projecttest";
-    $con = mysqli_connect($host,$username,$password,$database) or die (mysqli_error());
-
+    require_once('localhost.php');
     if($_SERVER['REQUEST_METHOD']=='POST'){
         
         $image = $_POST['image'];
         
         $sql = "INSERT INTO images (image) VALUES (?)";
 
-        $stmt = mysqli_prepare($con,$sql);
+        $stmt = mysqli_prepare($conn,$sql);
         
         mysqli_stmt_bind_param($stmt,"s",$image);
         mysqli_stmt_execute($stmt);
@@ -23,7 +18,7 @@
         }else{
             echo "Error Uploading Image";
         }
-        mysqli_close($con);
+        mysqli_close($conn);
     }else{
         echo "Error";
     }

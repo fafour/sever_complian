@@ -1,16 +1,10 @@
 <?php header('Content-type: text/plain; charset=utf-8');
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "projecttest";
-    $con = mysqli_connect($host,$username,$password,$database) or die (mysqli_error());
-
-
+   require_once('localhost.php');
     $image_tag = isset($_POST['image_tag']) ? $_POST['image_tag'] : '';
 
     $sql = "SELECT image_data from imageupload WHERE image_tag='".$image_tag."'  ";
 
-    $r = mysqli_query($con,$sql);
+    $r = mysqli_query($conn,$sql);
 	 
 	$res = mysqli_fetch_array($r); 
 
@@ -25,7 +19,7 @@
 
     
 
-    mysqli_close($con);
+    mysqli_close($conn);
 
 
 ?>

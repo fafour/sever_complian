@@ -1,14 +1,5 @@
 <?php header('Content-type: text/plain; charset=utf-8');
-	$host = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "projecttest";
-	$conn = mysqli_connect($host,$username,$password,$database) or die (mysqli_error());
-	if($conn){
-		echo "success";
-	}else{
-		echo "Connect fail";
-	}
+	require_once('localhost.php');
 	$idpeople = isset($_POST['idpeople']) ? $_POST['idpeople'] : '';
 	$tittleName = isset($_POST['tittleName']) ? $_POST['tittleName'] : '';
 	$name = isset($_POST['name']) ? $_POST['name'] : '';

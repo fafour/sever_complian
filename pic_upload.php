@@ -1,9 +1,6 @@
 <?php   header('Content-type: text/plain; charset=utf-8');
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "projecttest";
-    $conn = mysqli_connect($host,$username,$password,$database) or die (mysqli_error());
+  	
+	require_once('localhost.php');
   	
 	 if($_SERVER['REQUEST_METHOD'] == 'POST')
 	 {
@@ -26,7 +23,7 @@
 
 	 $ImagePath = "pic/$DefaultIds.jpg";
 	 
-	 $ServerURL = "http://192.168.1.40/data/$ImagePath";
+	 $ServerURL = "http://192.168.1.37/data/$ImagePath";
 	 
 	 $InsertSQL = "insert into ImageUpload (image_data,image_tag) values ('$ServerURL','$ImageName')";
 	 

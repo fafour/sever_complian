@@ -1,20 +1,7 @@
-<?php 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "projecttest";
-
-	try {
-			ini_set('display_errors', true);
-			header('Content-Type: text/html; charset=utf-8');
-	    	$connection = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password,
-	    		array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    					PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-	    	$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    	$connection -> exec("SET CHARACTER SET utf8");
-
+<?php  header('Content-type: text/plain; charset=utf-8');
 	    	if(!empty($_POST['searchQuery']))
 				{
+					require_once('localhost_pdo.php');
 				  $txt = html_entity_decode(preg_replace("/U\+([0-9A-F]{4})/", "&#x\\1;",$_POST['searchQuery']), ENT_NOQUOTES, 'UTF-8');
 
 				  $search_query='%' . $txt . '%';
@@ -44,11 +31,7 @@
 
 				}
 			}
-	    }
-	catch(PDOException $e)
-	    {
-	    	die("OOPs something went wrong");
-	    }
+
 
 	
 
