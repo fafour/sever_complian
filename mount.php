@@ -5,7 +5,7 @@
 		  require_once('localhost_pdo.php');
 		  $search_query=$_POST['searchQuery'];
 		  $todaysDate = date('m');
-		  $sql = "SELECT * FROM detailcomplain  where AtDay LIKE '__/$todaysDate/____' ";
+		  $sql = "SELECT * FROM detailcomplain  where AtDay LIKE '____-$todaysDate-__' ";
 		  $statement = $connection->prepare($sql);
 		  $statement->bindParam(':search_query', $search_query, PDO::PARAM_STR);
 		  $statement->execute();

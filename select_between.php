@@ -6,7 +6,7 @@
 		  $search_query=$_POST['searchQuery'];
 		  $search_query1=$_POST['searchQuery1'];
 		  
-		  $sql = "SELECT * FROM detailcomplain  WHERE AtDay BETWEEN :search_query AND :search_query1 ORDER BY `detailcomplain`.`ID` DESC";
+		  $sql = "SELECT * FROM detailcomplain  WHERE (AtDay BETWEEN :search_query AND :search_query1 )ORDER BY `detailcomplain`.`ID` DESC";
 
 		  $statement = $connection->prepare($sql);
 		  $statement->bindParam(':search_query', $search_query, PDO::PARAM_STR);

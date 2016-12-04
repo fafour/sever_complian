@@ -23,7 +23,7 @@
 
 	 $ImagePath = "pic/$DefaultIds.jpg";
 	 
-	 $ServerURL = "http://192.168.1.37/data/$ImagePath";
+	 $ServerURL = "http://192.168.1.107/data/$ImagePath";
 	 
 	 $InsertSQL = "insert into ImageUpload (image_data,image_tag) values ('$ServerURL','$ImageName')";
 	 
