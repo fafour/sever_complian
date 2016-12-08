@@ -2,15 +2,15 @@
 	require_once('localhost.php');
 	
 
-	 $sql = "SELECT * FROM  tb_status" ;
+	 $sql = "SELECT * FROM  login WHERE Status = '1' AND (Level ='1' OR Level = '2') " ;
 	 $r = mysqli_query($conn,$sql);
 	
 	$result = array();
 	
 	while($row = mysqli_fetch_array($r)){
 		array_push($result,array(
-			'nameStatus'=>$row['st_title'],
-			
+			'NameUser'=>$row['NameUser'],
+			'SurNameUser'=>$row['SurNameUser']
 		));
 	}
 	

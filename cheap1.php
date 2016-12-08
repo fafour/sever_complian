@@ -3,7 +3,8 @@
 		{
 		  require_once('localhost_pdo.php');
 		  $search_query=$_POST['searchQuery'];
-		  $sql = "SELECT * FROM detailcomplain  WHERE Status = 'รับเรื่องร้องเรียน'  ORDER BY `detailcomplain`.`ID` DESC";
+
+		  $sql = "SELECT * FROM detailcomplain  WHERE Status = '6'  ORDER BY `detailcomplain`.`ID` DESC";
 		  $statement = $connection->prepare($sql);
 		  $statement->bindParam(':search_query', $search_query, PDO::PARAM_STR);
 		  $statement->execute();

@@ -4,7 +4,7 @@
 		{
 		  require_once('localhost_pdo.php');
 		  $search_query=$_POST['searchQuery'];
-		  $sql = "SELECT * FROM detailcomplain  where Status = 'รับเรื่องร้องเรียน'  ";
+		  $sql = "SELECT * FROM detailcomplain  where Status = '6'  ";
 		  $statement = $connection->prepare($sql);
 		  $statement->bindParam(':search_query', $search_query, PDO::PARAM_STR);
 		  $statement->execute();
